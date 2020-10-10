@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAssetConverterPlugins", "UAssetConverterPlugins\UAssetConverterPlugins.csproj", "{977CC811-D43C-42BA-96BC-816730ABFDAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{977CC811-D43C-42BA-96BC-816730ABFDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977CC811-D43C-42BA-96BC-816730ABFDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977CC811-D43C-42BA-96BC-816730ABFDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977CC811-D43C-42BA-96BC-816730ABFDAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DA68386-6EBA-4F16-9D42-EACA25FB0980}
+	EndGlobalSection
+EndGlobal
