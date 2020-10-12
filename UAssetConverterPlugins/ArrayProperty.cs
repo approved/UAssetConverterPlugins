@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UConvertPlugin;
 using UConvertPlugin.Unreal;
 
@@ -7,22 +10,34 @@ namespace UAssetConverterPlugins
     public class ArrayProperty : IConverterPlugin
     {
         public FName ArrayType;
+        public List<object> Properties = new List<object>();
 
         public string GetPropertyName() => "ArrayProperty";
 
         public bool HasTagData() => true;
 
-        //TODO: Implement Tag Value
-        public bool HasTagValue() => false;
+        public bool HasTagValue() => true;
 
         public void DeserializePropertyTagData(IAssetConverter converter)
         {
             this.ArrayType = new FName(converter.GetNameMap(), converter.GetExportStream());
         }
 
+        //TODO: When deserializing StructProperty arrays, invalid data may occur. Must fix, unsure how at this time
+        /**
+         * Comment Author: Nick Kennedy
+         * Date: 12 October 2020
+         **/
         public void DeserializePropertyTagValue(IAssetConverter converter)
         {
-            throw new NotImplementedException();
+            using (BinaryReader br = new BinaryReader(converter.GetExportStream(), Encoding.UTF8, true))
+            {
+                int count = br.ReadInt32();
+                for (int i = 0; i < count; i++)
+                {
+                    Properties.Add(converter.GetValueProperties(this.ArrayType.Name));
+                }
+            }
         }
 
         public byte[] SerializePropertyTagData(IAssetConverter converter)
