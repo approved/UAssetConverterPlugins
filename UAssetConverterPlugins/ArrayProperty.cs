@@ -10,6 +10,7 @@ namespace UAssetConverterPlugins
     public class ArrayProperty : IConverterPlugin
     {
         public FName ArrayType;
+        public int Count;
         public List<object> Properties = new List<object>();
 
         public string GetPropertyName() => "ArrayProperty";
@@ -32,8 +33,8 @@ namespace UAssetConverterPlugins
         {
             using (BinaryReader br = new BinaryReader(converter.GetExportStream(), Encoding.UTF8, true))
             {
-                int count = br.ReadInt32();
-                for (int i = 0; i < count; i++)
+                this.Count = br.ReadInt32();
+                for (int i = 0; i < this.Count; i++)
                 {
                     Properties.Add(converter.GetValueProperties(this.ArrayType.Name));
                 }
